@@ -1,6 +1,13 @@
-const { chromium, firefox, webkit } = require('playwright')
-const puppeteer = require('puppeteer')
+const { /*chromium,*/ firefox, webkit } = require('playwright')
 const CaptchaSolver = require('../src/CaptchaSolver')
+
+// puppeteer-extra is a drop-in replacement for puppeteer,
+// it augments the installed puppeteer with plugin functionality
+const puppeteer = require('puppeteer-extra')
+
+// add stealth plugin and use defaults (all evasion techniques)
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+puppeteer.use(StealthPlugin())
 
 jest.setTimeout(90000)
 
@@ -19,6 +26,7 @@ const runTestsFor = (name, browserType) => {
     beforeEach(async () => {
       if ('newContext' in browser) {
         context = await browser.newContext({ ignoreHTTPSErrors: true })
+
         page = await context.newPage()
       } else {
         context = null
@@ -61,7 +69,7 @@ const runTestsFor = (name, browserType) => {
 describe('CaptchaSolver', () => {
   runTestsFor('Puppeteer', puppeteer)
 
-  runTestsFor('Playwright - chromium', chromium)
+  //runTestsFor('Playwright - chromium', chromium)
   runTestsFor('Playwright - firefox', firefox)
   runTestsFor('Playwright - webkit', webkit)
 })

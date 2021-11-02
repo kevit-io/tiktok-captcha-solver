@@ -4,7 +4,7 @@
   "description": "Solves the TikTok captcha interactively using playwright or puppeteer.",
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/.bin/jest --runInBand",
+    "test": "jest",
     "lint": "prettier --write --ignore-unknown ."
   },
   "keywords": [
@@ -25,7 +25,9 @@
     "lint-staged": "^11.0.0",
     "playwright": "^1.10.0",
     "prettier": "2.3.0",
-    "puppeteer": "^9.1.1"
+    "puppeteer": "^9.1.1",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin-stealth": "^2.9.0"
   },
   "files": [
     "index.js",
