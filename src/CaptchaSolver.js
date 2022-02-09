@@ -101,7 +101,7 @@ class CaptchaSolver {
       const sliderContainer = await this.page.$(
         this.selectors.puzzleImageWrapper
       )
-      
+
       const sliderImage = await this.page.screenshot({
         clip: await sliderContainer.boundingBox(),
       })
@@ -274,14 +274,8 @@ class CaptchaSolver {
   validCaptchaUrl(url) {
     const matchesSecurityCaptchaUrl = url.includes('security-captcha')
 
-    const captchaImageSubUrls = [
-      'captcha-us.ibyteimg.com/',
-      'captcha-va.ibyteimg.com/',
-    ]
-
     const matchesByteImgUrls =
-      captchaImageSubUrls.find((subUrl) => url.includes(subUrl)) &&
-      url.includes('-2.jpeg')
+      /captcha-\S{2,2}\.ibyteimg\.com\/\S+-2\.jpeg/.test(url)
 
     return matchesSecurityCaptchaUrl || matchesByteImgUrls
   }

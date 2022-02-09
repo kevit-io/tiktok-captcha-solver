@@ -78,6 +78,10 @@ captchaSolver.solve({
 
 ##### Latest
 
+##### `0.0.8`
+
+- Updates validCaptchaUrl
+
 ##### `0.0.3`
 
 - Initial version
