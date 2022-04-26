@@ -275,7 +275,9 @@ class CaptchaSolver {
     const matchesSecurityCaptchaUrl = url.includes('security-captcha')
 
     const matchesByteImgUrls =
-      /captcha-\S{2,2}\.ibyteimg\.com\/\S+-2\.jpeg/.test(url)
+      /(captcha|security)-\S{2}\.ibyteimg\.com\/(\S+)(-2\.jpeg|_1\.jpg~tp)/gi.test(
+        url
+      )
 
     return matchesSecurityCaptchaUrl || matchesByteImgUrls
   }
