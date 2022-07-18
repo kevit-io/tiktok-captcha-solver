@@ -316,8 +316,8 @@ class CaptchaSolver {
       position: 'absolute',
       top: `${topPosition + 0.05}em`,
       left: puzzlePieceEl.style.left,
-      width: '0.617536em',
-      height: '0.617536em',
+      width: '0.5em',
+      height: '0.5em',
       backgroundColor: 'magenta',
     })
 
