@@ -314,7 +314,7 @@ class CaptchaSolver {
     const topPosition = Number(puzzlePieceEl.style.top.split('em')[0])
     Object.assign(div.style, {
       position: 'absolute',
-      top: `${topPosition + 0.05}em`,
+      top: `${topPosition + 0.04}em`,
       left: puzzlePieceEl.style.left,
       width: '0.5em',
       height: '0.5em',
